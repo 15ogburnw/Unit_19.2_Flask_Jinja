@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madlibs!</title>
-</head>
-<body>
-    <h1>Madlibs!</h1>
-    <form action="/story">
-    {% for word in prompts%}
-        <p>
-            <label for="{{word}}">{{word}}:</label>
-            <input type="text" id="{{word}}" name="{{word}}">
-        </p>
-    {%endfor%}
-    <button type="submit">Create Story!</button> 
-    </form>
+{% extends 'base.html' %}
+
+{% block title %}Madlibs!{% endblock %}
+
+{% block content %}
+
+<h1>Madlibs!</h1>
+
+<form action="/form">
+
+
+    <p>
+        <label for="madlib">Choose a Madlib to Get Started!</label>
+    </p>
     
-</body>
-</html>
+
+    <select name="madlib" id="madlib">
+
+        <option value="">Select a Madlib</option>
+        <option value="pizza-parlor">Pizza Parlor</option>
+        <option value="dragons">Dragons</option>
+        <option value="wash-face">How to Wash Your Face</option>
+
+    </select>
+
+    <p>
+        <button type="submit">Let's Go!</button>
+    </p>
+    
+
+</form>
+
+{% endblock %}

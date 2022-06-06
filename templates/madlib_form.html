@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}New Madlib{% endblock %}
+
+{% block content %}
+    <h1>Madlibs!</h1>
+    <form action="/story">
+    {% for word in prompts %}
+        <p>
+            {% if word[-1].isdigit() %}
+                <label for="{{word}}">{{word[:-1:]}}:</label>
+            {% else %}
+                <label for="{{word}}">{{word}}:</label>
+            {% endif %}
+            
+            <input type="text" id="{{word}}" name="{{word}}">
+        </p>
+    {% endfor %}
+    <button type="submit">Create Story!</button> 
+    </form>
+{% endblock %}
